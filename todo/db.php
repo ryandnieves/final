@@ -8,6 +8,13 @@ class Db {
     } 
 } // end class
 
+function delete_by_id($id) { 
+    $query = "DELETE from todo WHERE id = $id"; 
+    $result = $this->mysql->query($query) or die("there was a problem, man."); 
+      
+    if($result) return 'yay!'; 
+}
+
 function update_by_id($id, $description) { 
     $query = "UPDATE todo  
               SET description = ?  
