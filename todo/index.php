@@ -1,91 +1,65 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
-<html xmlns="http://www.w3.org/1999/xhtml"> 
-<head> 
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
-    <link rel="stylesheet" href="css/default.css" /> 
-    <title>My To-Do List</title> 
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.1/jquery.min.js"></script> 
-    <script type="text/javascript" src="js/scripts.js"></script> 
-</head> 
+<!DOCTYPE html>
+<html>         
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport" />
+	<title>To do!!!</title>
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/default.css" />
+        <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Gloria+Hallelujah' rel='stylesheet' type='text/css'>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.1/jquery.min.js"></script>
+	<script src="js/scripts.js"></script>		
+</head>
+<body>
+<div id="container">
+<header>
+<img class="headerimg" src="/todo/images/heading-trans.gif">
+</header>
+    
+<ul id="tabs">
+<li id="todo_tab" class="selected">
+    <a href="#">To-Do</a>
+</li>
+</ul>
 
-<body> 
-  
-<div id="container"> 
-      
-<h1>My to-Do List</h1> 
-  
-<ul id="tabs"> 
-    <li id="todo_tab" class="selected"><a href="#">To-Do</a></li>        
-</ul> 
-  
-<div id="main"> 
-      
-<div id="todo"> 
-<?php 
+<div id="main">
+<div id="todo">
+            
+<div class="item"><h4>Link</h4>
+<p>asd</p>
 
-function delete_by_id($id) { 
-    $query = "DELETE from todo WHERE id = $id"; 
-    $result = $this->mysql->query($query) or die("there was a problem, man."); 
-      
-    if($result) return 'yay!'; 
-}
+<input type="hidden" name="id" id="id" value="351" required/>
 
-require 'db.php'; 
-$db = new Db(); 
-$query = "SELECT * FROM todo ORDER BY id asc"; 
-$results = $db->mysql->query($query); 
-  
-if($results->num_rows) { 
-    while($row = $results->fetch_object()) { 
-        $title = $row->title; 
-        $description = $row->description; 
-        $id = $row->id; 
-      
-echo '<div class="item">'; 
-  
-$data = <<<EOD 
-<h4> $Title </h4> 
-<p> $description </p> 
-  
-<input type="hidden" name="id" id="id" value="$id" /> 
-  
-<div class="options"> 
-    <a class="deleteEntryAnchor" href="delete.php?id=$id">D</a> 
-    <a class="editEntry" href="#">E</a> 
-</div> 
-EOD; 
-          
-echo $data; 
-echo '</div>'; 
-    } // end while 
-} else { 
-    echo "<p>There are zero items. Add one now!</p>"; 
-} 
-?> 
-</div><!--end todo wrap--> 
-  
-<div id="addNewEntry"> 
-<h2>Add New Entry</h2> 
-<form action="addItem.php" method="post"> 
-    <p> 
-        <label for="title"> Title</label> 
-        <input type="text" name="title" id="title" class="input"/> 
-    </p> 
-  
-    <p> 
-        <label for="description"> Description</label> 
-        <textarea name="description" id="description" rows="10" cols="35"></textarea> 
-    </p>   
-      
-    <p> 
-        <input type="submit" name="addEntry" id="addEntry" value="Add New Entry" /> 
-    </p> 
-</form> 
+<div class="options">
+    <a class="deleteEntryAnchor" href="delete.php?id=351">Delete</a>
+    <a class="editEntry" href="#">Edit</a>
+    <a class="save-button" href="index.php">Save</a>
+</div></div></div><!--end todo-->
+		
+<div id="addNewEntry">
+	<h2>Add New Entry</h2>			
+<form action="addItem.php" method="post">			
+    <p><label for="title"> Title</label>
+	<input type="text" name="title" id="title" class="input" required maxlength=48"/></p>                    			
+    <p><label for="description"> Description</label>
+	<textarea name="description" id="description" required ></textarea></p>                                   				
+    <p><input type="submit" name="addEntry" id="addEntry" value="Add New Entry" /></p>                    
+</form>
+				
+</div><!--end addNewEntry-->			
+</div><!--end main-->
+</div><!--end container-->	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-</div><!-- end add new entry --> 
-  
-</div><!-- end main--> 
-</div><!--end container--> 
-  
-</body> 
+  ga('create', 'UA-37373746-3', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
 </html>
