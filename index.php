@@ -7,7 +7,7 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.1/jquery.min.js"></script> 
     <script type="text/javascript" src="js/scripts.js"></script> 
 </head> 
-  
+
 <body> 
   
 <div id="container"> 
@@ -22,6 +22,13 @@
       
 <div id="todo"> 
 <?php 
+
+function delete_by_id($id) { 
+    $query = "DELETE from todo WHERE id = $id"; 
+    $result = $this->mysql->query($query) or die("there was a problem, man."); 
+      
+    if($result) return 'yay!'; 
+}
 
 require 'db.php'; 
 $db = new Db(); 
@@ -75,6 +82,7 @@ echo '</div>';
         <input type="submit" name="addEntry" id="addEntry" value="Add New Entry" /> 
     </p> 
 </form> 
+
 </div><!-- end add new entry --> 
   
 </div><!-- end main--> 
