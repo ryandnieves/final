@@ -1,0 +1,29 @@
+html{    
+    background-image: url("/todo/css/servers2.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;  
+    }  
+
+p{
+    font-size: 21px;
+    word-break: break-word;
+    font-family: 'Gloria Hallelujah', cursive;
+    }
+
+#container{
+    width: 100%;
+    max-width: 640px;
+    margin: auto;
+    text-align: center;
+    }
+
+p, h3, h2, ol, ul{
+    padding: 0 7px;
+    }
+
+img{
+    width: 100%;
+    max-width: 341px;
+    margin: 20px 0 30px 0;
+    padding: 0 0 10px 0;
