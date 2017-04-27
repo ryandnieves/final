@@ -20,7 +20,7 @@
         $db = new PDO("mysql:host=$hostname;dbname=$database", $username, $password);
 		
 		// sql to create table
-		$sql = "CREATE TABLE RegInfo (
+		$sql2 = "CREATE TABLE RegInfo (
 		id INT(6) AUTO_INCREMENT PRIMARY KEY, 
 		fullName VARCHAR(255) NOT NULL,
 		email VARCHAR(255) NOT NULL,
@@ -30,7 +30,7 @@
 		gender VARCHAR(255)
 		);";
 
-		if ($db->query($sql) === TRUE) {
+		if ($db->query($sql2) === TRUE) {
 			echo "Table MyGuests created successfully";
 		} else {
 			//echo "Error creating table: " . $db->error;
