@@ -65,7 +65,6 @@ echo '</div>';
 </div><!--end todo wrap--> 
   
 <div id="addNewEntry"> 
-<hr /> 
 <h2>Add New Entry</h2> 
 <form action="addItem.php" method="post"> 
     <p> 
